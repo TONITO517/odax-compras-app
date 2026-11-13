@@ -209,7 +209,7 @@ CREATE TABLE tb_auditoria (
   usuario      VARCHAR(100) NOT NULL,
   fecha_hora   DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT pk_auditoria PRIMARY KEY (id_auditoria),
-  CONSTRAINT ck_auditoria_operacion CHECK (operacion IN ('INSERTAR', 'MODIFICAR', 'ANULAR', 'REACTIVAR'))
+  CONSTRAINT ck_auditoria_operacion CHECK (operacion IN ('INSERTAR', 'MODIFICAR', 'ANULAR', 'REACTIVAR', 'EJECUTAR'))
 ) ENGINE = InnoDB;
 
 -- ---------------------------------------------------------------------
