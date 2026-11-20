@@ -8,7 +8,8 @@ import tkinter as tk
 from tkinter import messagebox, ttk
 
 from datos.conexion import probar_conexion
-from . import vista_productos, vista_proveedores
+from . import (vista_cotizaciones, vista_guias, vista_ordenes, vista_pagos,
+               vista_productos, vista_proveedores, vista_reportes, vista_requerimientos)
 
 NOMBRE_APP = "Odax Farma – Gestión de Órdenes de Compra"
 
@@ -36,13 +37,15 @@ class VentanaPrincipal(tk.Tk):
         barra.add_cascade(label="Maestros", menu=maestros)
 
         documentos = tk.Menu(barra, tearoff=0)
-        for nombre in ("Requerimientos", "Cotizaciones", "Órdenes de compra",
-                       "Pagos", "Guías de remisión"):
-            documentos.add_command(label=nombre + " (en construcción)", state="disabled")
+        documentos.add_command(label="1. Requerimientos de compra", command=lambda: vista_requerimientos.abrir(self))
+        documentos.add_command(label="2. Cotizaciones", command=lambda: vista_cotizaciones.abrir(self))
+        documentos.add_command(label="3. Órdenes de compra", command=lambda: vista_ordenes.abrir(self))
+        documentos.add_command(label="4. Pagos", command=lambda: vista_pagos.abrir(self))
+        documentos.add_command(label="5. Guías de remisión", command=lambda: vista_guias.abrir(self))
         barra.add_cascade(label="Documentos", menu=documentos)
 
         reportes = tk.Menu(barra, tearoff=0)
-        reportes.add_command(label="Reportes (en construcción)", state="disabled")
+        reportes.add_command(label="Ver reportes…", command=lambda: vista_reportes.abrir(self))
         barra.add_cascade(label="Reportes", menu=reportes)
 
         ayuda = tk.Menu(barra, tearoff=0)

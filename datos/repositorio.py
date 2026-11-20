@@ -26,6 +26,12 @@ def traducir_error(e: Error) -> str:
         return "El registro relacionado no existe (revise el código ingresado)."
     if e.errno == 3819:
         return f"Dato no válido: no cumple la regla {e.msg.split(chr(39))[1] if chr(39) in e.msg else e.msg}."
+    if e.errno == 1292:
+        return "Fecha o número no válido. Use fechas con el formato AAAA-MM-DD (por ejemplo, 2026-11-12)."
+    if e.errno in (1366, 1265):
+        return "Valor no válido: revise que las cantidades y montos sean números (use punto decimal)."
+    if e.errno == 1406:
+        return "Uno de los textos es demasiado largo."
     if e.errno in (1045, 2003):
         return "No hay conexión con la base de datos. Revise config.ini y que MySQL esté iniciado."
     return f"Error {e.errno}: {e.msg}"
