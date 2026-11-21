@@ -44,6 +44,10 @@ almacenado. El usuario de conexión `odax_app` solo tiene permisos `SELECT` y `E
    python main.py
    ```
 
+## Generar el ejecutable
+
+Ejecutar `construir_ejecutable.bat` (requiere el entorno `.venv`). Genera `OdaxCompras.exe` con PyInstaller y arma la carpeta `..\ENTREGA_FINAL\EJECUTABLE` con el ejecutable, `config.ini`, el script de la BD, el instalador de la BD (`Instalar base de datos.bat`), el acceso directo y las instrucciones.
+
 ## Credenciales de prueba
 
 | Dato | Valor |

@@ -1,0 +1,41 @@
+ODAX FARMA - GESTION DE ORDENES DE COMPRA
+Aplicativo de escritorio para Windows (Gestion de Datos e Informacion - UCSM)
+=========================================================================
+
+CONTENIDO DE ESTA CARPETA
+  OdaxCompras.exe ................ el aplicativo (no necesita instalar Python)
+  OdaxCompras (acceso directo) ... abre el aplicativo
+  Iniciar OdaxCompras.bat ........ otra forma de abrir el aplicativo
+  config.ini ..................... datos de conexion a la base de datos
+  Instalar base de datos.bat ..... crea la base de datos en MySQL
+  BD\odaxfarma_compras_COMPLETO.sql  script completo de la base de datos
+
+REQUISITOS
+  - Windows 10 u 11.
+  - MySQL Server 8.0 (version 8.0.16 o superior) instalado y en ejecucion.
+    Descarga: https://dev.mysql.com/downloads/installer/
+  - El aplicativo NO requiere instalar Python ni otras librerias.
+
+PASOS PARA USARLO
+  1. Instale MySQL Server 8.0 (si ya lo tiene, siga al paso 2).
+  2. Doble clic en "Instalar base de datos.bat" e ingrese la contrasena
+     del usuario root de MySQL. Crea la base de datos con datos de prueba
+     y el usuario del aplicativo. Solo se hace una vez.
+     (Alternativa: abrir BD\odaxfarma_compras_COMPLETO.sql en MySQL
+     Workbench y ejecutarlo.)
+  3. Doble clic en el acceso directo "OdaxCompras" (o en
+     "Iniciar OdaxCompras.bat").
+  4. La barra inferior debe decir en verde: "Conectado a odaxfarma_compras".
+
+CREDENCIALES DE PRUEBA (ya estan en config.ini)
+  Servidor: localhost   Puerto: 3306
+  Base de datos: odaxfarma_compras
+  Usuario: odax_app     Contrasena: OdaxApp2026!
+
+PROBLEMAS FRECUENTES
+  - "No hay conexion con la base de datos": verifique que el servicio
+    MySQL80 este iniciado y que se ejecuto "Instalar base de datos.bat".
+  - Si MySQL usa otro puerto o servidor, cambielo en config.ini.
+  - Si el antivirus bloquea OdaxCompras.exe, permita su ejecucion
+    (es un ejecutable generado con PyInstaller, sin firma digital).
+  - Para cerrar el aplicativo: menu Archivo > Salir.
